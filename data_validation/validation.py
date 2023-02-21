@@ -6,7 +6,7 @@ import yaml
 #Step1 Get data 
 def load_dataframes(path_to_df:Path):
     dataframe=pd.read_csv(path_to_df)
-    print('Data frame recieved')
+    #print('Data frame recieved')
     return dataframe  
 
 #Step2 Create Schema and get contnets of schema.yaml
@@ -25,7 +25,7 @@ def validate_rows(dataframe,schema,n,d,s,v):
     d.append(len(dataframe))
     s.append(schema['rows'])
     v.append(len(dataframe)==schema['rows'])
-    print(f"Number of rows Validated : {len(dataframe)==schema['rows']}")
+    #print(f"Number of rows Validated : {len(dataframe)==schema['rows']}")
 
 #Step4 Validate Number of columns  
 def validate_columns(dataframe,schema,n,d,s,v):
@@ -33,34 +33,34 @@ def validate_columns(dataframe,schema,n,d,s,v):
     d.append(len(dataframe.columns))
     s.append(len(schema['columns']))
     v.append(len(dataframe.columns)==len(schema['columns']))
-    print(f"Number of columns Validated : {len(dataframe.columns)==len(schema['columns'])}")  
+    #print(f"Number of columns Validated : {len(dataframe.columns)==len(schema['columns'])}")  
 
 #Step5 Validate datatypes of columns
 def validate_dataype_columns(dataframe,schema,n,d,s,v):
     for i in dataframe.columns:
-        n.append(f'Datatype of {i} coulmn')
+        n.append(f'Datatype of {i} column')
         d.append(dataframe.dtypes[i])
         s.append(schema['columns'][i])
         v.append(dataframe.dtypes[i]==schema['columns'][i])
-        print(f"{i} column datatype validated : {dataframe.dtypes[i]==schema['columns'][i]}")
+        #print(f"{i} column datatype validated : {dataframe.dtypes[i]==schema['columns'][i]}")
 
 #Step6 Validate minimum value of columns
 def validate_min_columns(dataframe,schema,n,d,s,v):
     for i in ('Age','Outcome'):
-        n.append(f'Minimum of {i} coulmn')
+        n.append(f'Minimum of {i} column')
         d.append(dataframe[i].min())
         s.append(schema['min_of_column'][i])
         v.append(dataframe[i].min()==schema['min_of_column'][i])
-        print(f"{i} column minimum value validated : {dataframe[i].min()==schema['min_of_column'][i]}") 
+        #print(f"{i} column minimum value validated : {dataframe[i].min()==schema['min_of_column'][i]}") 
 
 #Step7 Validate maximum value of columns
 def validate_max_columns(dataframe,schema,n,d,s,v):
     for i in ('Age','Outcome'):
-        n.append(f'Maximum of {i} coulmn')
+        n.append(f'Maximum of {i} column')
         d.append(dataframe[i].max())
         s.append(schema['max_of_column'][i])
         v.append(dataframe[i].max()==schema['max_of_column'][i])
-        print(f"{i} column maximum value validated : {dataframe[i].max()==schema['max_of_column'][i]}") 
+        #print(f"{i} column maximum value validated : {dataframe[i].max()==schema['max_of_column'][i]}") 
 
 #Step8 Generate Data Validation Report
 def create_validation_report_df(path_dir,n,d,s,v):
@@ -75,7 +75,9 @@ def create_validation_report_df(path_dir,n,d,s,v):
     report_df_filepath = os.path.join(path_dir,"validation_report.csv")
     report_html_filepath=os.path.join(path_dir,"validation_report.html")
 
-    report.to_csv(report_df_filepath,index=False)  
+    report.to_csv(report_df_filepath,index=False)  # csv saved
+    
+     # styling of dataframe is optional
     df_html_styled = report.style.set_properties(
                 **{"text-align": "left","border":"1px",
                 'border-color':'blue',
