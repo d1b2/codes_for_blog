@@ -1,0 +1,26 @@
+rows: 768
+
+columns:
+  Pregnancies : int64
+  Glucose : int64
+  BloodPressure : int64
+  SkinThickness : int64
+  Insulin : int64
+  BMI : float
+  DiabetesPedigreeFunction : float
+  Age : int64
+  Outcome : int64 
+
+
+min_of_column:
+  Age: 21
+  Outcome: 0
+  
+ 
+
+max_of_column:
+  Age: 81
+  Outcome: 1
+  
+
+target_column: Outcome

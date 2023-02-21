@@ -1,0 +1,16 @@
+Validation,Dataframe_Value,Schema_Value,Validation_Status
+Number of Row,768,768,True
+Number of Column,9,9,True
+Datatype of Pregnancies coulmn,int64,int64,True
+Datatype of Glucose coulmn,int64,int64,True
+Datatype of BloodPressure coulmn,int64,int64,True
+Datatype of SkinThickness coulmn,int64,int64,True
+Datatype of Insulin coulmn,int64,int64,True
+Datatype of BMI coulmn,float64,float,True
+Datatype of DiabetesPedigreeFunction coulmn,float64,float,True
+Datatype of Age coulmn,int64,int64,True
+Datatype of Outcome coulmn,int64,int64,True
+Minimum of Age coulmn,21,21,True
+Minimum of Outcome coulmn,0,0,True
+Maximum of Age coulmn,81,81,True
+Maximum of Outcome coulmn,1,1,True
