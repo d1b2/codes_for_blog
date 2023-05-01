@@ -1,0 +1,1 @@
+[Blog link](https://medium.com/@dhruvbakshi20/data-validation-d575a9c7ca8c)
